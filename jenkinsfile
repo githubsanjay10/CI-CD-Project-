@@ -14,7 +14,7 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 // Checkout code from your GitHub repository
-                git 'https://github.com/Sushmaa123/Java-Springboot.git'
+                git 'https://github.com/githubsanjay10/Java-Springboots-.git'
             }
         }
         
@@ -46,14 +46,14 @@ pipeline {
         stage('Docker Build') {
             steps {
                 // Build the Docker image for your Spring Boot application
-                sh 'docker build -t spring-boot1 .'
+                sh 'docker build -t Java-Springboots .'
             }
         }
         
         stage('Docker Run') {
             steps {
                 // Run the Docker container
-                sh 'docker run -d -p 8093:8080 spring-boot1'
+                sh 'docker run -d -p 8093:8080 Java-Springboots'
             }
         }
     }
@@ -62,7 +62,7 @@ pipeline {
         always {
             // Send a Slack notification with the build result
             echo 'Sending Slack notification...'
-            slackSend channel: '#ci-cd',
+            slackSend channel: '#ci-cd-java',
                       color: COLOR_MAP[currentBuild.currentResult],
                       message: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
         }
