@@ -53,7 +53,7 @@ pipeline {
         stage('Docker Run') {
             steps {
                 // Run the Docker container
-                sh 'docker run -d -p 8091:8091 spring-boot1'
+                sh 'docker run -d -p 8093:8080 spring-boot1'
             }
         }
     }
